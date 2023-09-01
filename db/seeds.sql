@@ -9,3 +9,19 @@ VALUES
 ('Fred', 'Haise', 58, 3),
 ('Jack', 'Swigert', 54, 0),
 ('Pete', 'Conrad', 12, 0);
+
+INSERT INTO department(dept_name)
+VALUES 
+('Competitor Benchmarking'),
+('Information Technology'),
+('Computer Engineering'),
+('Electrical Engineering'),
+('Chemical Engineering'),
+('Mechanical Engineering'),
+('User Interface Design'),
+('Supply Chain Mgmt Logistics'),
+('Credit & Finance'),
+('Marketing & Sales'),
+('Warranty Legal'),
+('Intellectual Property'),
+('Human Resources');
