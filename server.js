@@ -59,3 +59,38 @@ function cli_prompt() {
         };
     });    
 };
+
+
+function viewAll() {
+    let query =
+        "SELECT employees.first_name, employees.last_name, roles.title, roles.salary, department.dept_name AS department, employees.manager_id " +
+        "FROM employees " +
+        "JOIN roles ON roles.id = employees.role_id " +
+        "JOIN department ON roles.department_id = department.id " +
+        "ORDER BY employees.id;"
+    ;
+
+    connection.query(query, function(err, res) {
+        if (err) throw err;
+        for(i = 0; i < res.length; i++) {
+            if(res[i].manager_id == 0) {     
+                res[i].manager = "None" 
+            }else{
+                res[i].manager = res[res[i].manager_id - 1].first_name + " " + res[res[i].manager_id - 1].last_name;
+            };
+            delete res[i].manager_id;
+        };
+
+        console.table(res); 
+        cli_prompt();
+    });
+};
+
+function viewDept() {
+    let query = "SELECT department.dept_name AS departments FROM department;";
+    connection.query(query, function(err, res) {
+        if (err) throw err;
+        console.table(res); 
+        cli_prompt();
+    });
+};
