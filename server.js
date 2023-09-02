@@ -644,3 +644,8 @@ function deleteEmployee() {
         });
     });
 };
+
+function exit() {
+    connection.end();
+    console.log("Have a good day!");
+};
