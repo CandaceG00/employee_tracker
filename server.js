@@ -254,3 +254,56 @@ function addEmployee() {
         })
     })
 };
+
+function addDept() {
+    let query = "SELECT department.dept_name FROM department;";
+    connection.query(query, function(err, res){
+        if (err) throw err;
+        console.table(res);
+        let addDeptPrompt = [
+            {
+        
+                name: "new_department",
+                type: "input",
+                message: "Enter a new company department."
+                
+            },
+        ];
+        inquirer.prompt(addDeptPrompt)
+        .then(function(answer) {
+            console.log(answer);
+            let query = "INSERT INTO department SET ?";
+            connection.query(query,
+            {
+                dept_name: answer.new_department
+            }, function(err, res){
+                if (err) throw err;
+            });
+            
+            let addagainPrompt = [
+                {
+        
+                    name: "again",
+                    type: "list",
+                    message: "Would you like to add another department?",
+                    choices: ["Yes","Exit"]
+    
+                },
+            ];
+
+            inquirer.prompt(addagainPrompt)
+            .then(function(answer) {
+                let query = "SELECT department.dept_name FROM department" ;
+                connection.query(query, function(err, res){
+                    if (err) throw err;
+                    if(answer.again == "Yes") {
+                        addDept();                    
+                    }else if(answer.again == "Exit") {
+                        console.table(res);
+                        cli_prompt(); 
+                    };  
+                });
+            });
+        });
+    });
+};
