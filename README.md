@@ -32,6 +32,8 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 * Link to walkthrough video: https://drive.google.com/file/d/1QCM9oxxCE3V6EKcb2VPCrvBh4RHM8qEC/view?usp=drive_link
 
+* Link to GitHub repo: https://github.com/CandaceG00/employee_tracker
+
 ## Credits:
 
 * N/A
