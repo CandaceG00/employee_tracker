@@ -30,6 +30,8 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 * This application can be used to generate and modify information on the employee_db database in order to view a list of employees, their roles, and departments.
 
+* Link to walkthrough video: https://drive.google.com/file/d/1QCM9oxxCE3V6EKcb2VPCrvBh4RHM8qEC/view?usp=drive_link
+
 ## Credits:
 
 * N/A
